@@ -37,7 +37,7 @@ export default {
         nn.destroy()
     },
     /**
-     * @description web浏览器保存节点为图片
+     * @description web浏览器单节点保存为图片
      * @param {cc.Node} node 保存的节点
      * @param {String} fileName 保存的图片名字
      */
@@ -72,7 +72,7 @@ export default {
             }
             callback = function() {
                 const base64 = canvasEl.toDataURL()
-                this.downloadBase64(base64, fileName)
+                this.downloadImg(base64, fileName)
                 cc.director.off(cc.Director.EVENT_AFTER_DRAW)
             }
         } else {
@@ -97,7 +97,7 @@ export default {
             canvasNode.addChild(node)
             callback = function() {
                 const base64 = cc.game.canvas.toDataURL()
-                this.downloadBase64(base64, fileName)
+                this.downloadImg(base64, fileName)
                 cc.director.off(cc.Director.EVENT_AFTER_DRAW)
                 canvasNode.removeChild(node)
                 cc.view.setCanvasSize(width, height)
@@ -111,14 +111,14 @@ export default {
     },
     /**
      * @description 浏览器下载图片，兼容ie
-     * @param {Base64} base64 图片的base64格式
+     * @param {imgUrl|URL} imgUrl 图片的base64格式或图片Url
      * @param {String} fileName 图片名称
      */
-    downloadBase64(base64, fileName = 'QRcode.png') {
+    downloadImg(imgUrl, fileName = 'QRcode.png') {
         if (!cc.sys.isBrowser) return
         if (window.navigator.msSaveOrOpenBlob) {
             // 支持msSaveOrOpenBlob方法（也就是使用IE浏览器的时候）
-            const arr = base64.split(',')
+            const arr = imgUrl.split(',')
             const type = arr[0].match(/:(.*?);/)[1]
             const bstr = atob(arr[1])
             let n = bstr.length
@@ -149,7 +149,7 @@ export default {
             });
             aEl.download = fileName
             aEl.target = '_blank' // safari浏览器在新标签页显示
-            aEl.href = base64
+            aEl.href = imgUrl
             document.body.appendChild(aEl)
             aEl.dispatchEvent(evt) // 兼容火狐浏览器
             document.body.removeChild(aEl)

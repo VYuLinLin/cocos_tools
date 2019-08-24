@@ -6,12 +6,6 @@ export default class NewClass extends cc.Component {
     @property(cc.PageView)
     pageView: cc.PageView = null;
 
-    @property({
-        type: cc.Node,
-        tooltip: '要保存为图片的节点'
-    })
-    savaNode: cc.Node = null;
-
     start () {
         this.setContentHeight()
     }
@@ -28,12 +22,7 @@ export default class NewClass extends cc.Component {
     scrollToPage(event = null, index = 0) {
         this.pageView && this.pageView.scrollToPage(index)
     }
-
     goback() {
         cc.director.loadScene('helloworld')
-    }
-    // web浏览器保存节点为图片
-    saveNodeImg() {
-        cocosTools.saveNodeImg(this.savaNode, 'mode.png')
     }
 }

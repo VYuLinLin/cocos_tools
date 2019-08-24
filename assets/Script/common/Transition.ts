@@ -3,29 +3,29 @@ const {ccclass, property, menu} = cc._decorator;
 class TransitionHandler extends cc.Component {
     name: 'cc.TransitionHandler'
 
-        @property({
-            type: cc.Node,
-            tooltip: '过渡目标节点'
-        })
-        target: cc.Node = null
+    @property({
+        type: cc.Node,
+        tooltip: '过渡目标节点'
+    })
+    target: cc.Node = null
 
-        @property({
-            type: cc.Float,
-            tooltip: '过渡持续时间，默认过渡时间0.5s'
-        })
-        duration: cc.Float = 0.5
+    @property({
+        type: cc.Float,
+        tooltip: '过渡持续时间，默认过渡时间0.5s'
+    })
+    duration: cc.Float = 0.5
 
-        @property({
-            type: cc.Integer,
-            tooltip: '初始X轴位置，默认当前节点X轴位置'
-        })
-        positionX: cc.Integer = 0
-        
-        @property({
-            type: cc.Integer,
-            tooltip: '初始Y轴位置，默认当前节点Y轴位置'
-        })
-        positionY: cc.Integer = 0
+    @property({
+        type: cc.Integer,
+        tooltip: '初始X轴位置，默认当前节点X轴位置'
+    })
+    positionX: cc.Integer = 0
+    
+    @property({
+        type: cc.Integer,
+        tooltip: '初始Y轴位置，默认当前节点Y轴位置'
+    })
+    positionY: cc.Integer = 0
 }
 
 @ccclass
@@ -36,7 +36,7 @@ export default class NewClass extends cc.Component {
         type: TransitionHandler,
         tooltip: '需要过渡效果的节点及配置'
     })
-    nodes: TransitionHandler = []
+    nodes: TransitionHandler[] = []
 
     onEnable() {
         const nodes = this.nodes
