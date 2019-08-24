@@ -41,7 +41,7 @@ export default {
      * @param {cc.Node} node 保存的节点
      * @param {String} fileName 保存的图片名字
      */
-    saveNodeImg(node, fileName) {
+    saveNodeImg(node: cc.Node, fileName: String) {
         if (!(node instanceof cc.Node)) return
         let callback = null
 

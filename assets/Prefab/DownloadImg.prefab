@@ -13,36 +13,39 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "page_3",
+    "_name": "DownloadImg",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
       {
         "__id__": 2
+      },
+      {
+        "__id__": 30
       }
     ],
     "_active": true,
     "_level": 1,
     "_components": [
       {
-        "__id__": 30
+        "__id__": 34
       },
       {
-        "__id__": 31
+        "__id__": 35
       },
       {
-        "__id__": 32
+        "__id__": 36
       }
     ],
     "_prefab": {
-      "__id__": 33
+      "__id__": 37
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 200,
-      "g": 200,
-      "b": 255,
+      "g": 255,
+      "b": 200,
       "a": 255
     },
     "_contentSize": {
@@ -289,9 +292,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "fc3f3702-675f-4807-9db8-9b7fa3ea1d4c"
+      "__uuid__": "5e9615d7-47ce-46ac-a5c3-f121092cc5e7"
     },
-    "fileId": "5eJS8lDWNO9Y1pmA7XCSQN",
+    "fileId": "74acC7puhDxK3KeMYqnhwt",
     "sync": false
   },
   {
@@ -418,9 +421,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "fc3f3702-675f-4807-9db8-9b7fa3ea1d4c"
+      "__uuid__": "5e9615d7-47ce-46ac-a5c3-f121092cc5e7"
     },
-    "fileId": "09GTVLKGREKbZ3VO1T29ml",
+    "fileId": "edAcsJxP1ELqJoBkY53dHK",
     "sync": false
   },
   {
@@ -502,8 +505,8 @@
       }
     ],
     "_useOriginalSize": true,
-    "_string": "Enter text here...",
-    "_N$string": "Enter text here...",
+    "_string": " 输入图片的URL或者Base64格式的图片数据",
+    "_N$string": " 输入图片的URL或者Base64格式的图片数据",
     "_fontSize": 20,
     "_lineHeight": 25,
     "_enableWrapText": false,
@@ -551,9 +554,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "fc3f3702-675f-4807-9db8-9b7fa3ea1d4c"
+      "__uuid__": "5e9615d7-47ce-46ac-a5c3-f121092cc5e7"
     },
-    "fileId": "08bdNozgpKUYGSjuPKaZbM",
+    "fileId": "edh/fxeV9K9YY0UPVCLNcy",
     "sync": false
   },
   {
@@ -770,8 +773,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "生成二维码",
-    "_N$string": "生成二维码",
+    "_string": "下载图片",
+    "_N$string": "下载图片",
     "_fontSize": 20,
     "_lineHeight": 40,
     "_enableWrapText": false,
@@ -792,9 +795,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "fc3f3702-675f-4807-9db8-9b7fa3ea1d4c"
+      "__uuid__": "5e9615d7-47ce-46ac-a5c3-f121092cc5e7"
     },
-    "fileId": "70CzALmVlEa7nEvIhWfl7D",
+    "fileId": "4ddIWIDDxE/6Dm1DKlwAZd",
     "sync": false
   },
   {
@@ -862,9 +865,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "fc3f3702-675f-4807-9db8-9b7fa3ea1d4c"
+      "__uuid__": "5e9615d7-47ce-46ac-a5c3-f121092cc5e7"
     },
-    "fileId": "5d/mMvTO5C7aXr0nl4y/Gs",
+    "fileId": "fbj2qNhRxKyIxfUSLQQrQ6",
     "sync": false
   },
   {
@@ -957,8 +960,8 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "9277bRcsSpNkqkB1Kxu3Ivk",
-    "handler": "createQRCode",
+    "_componentId": "3effc7Lkd1MyYMCke51o0wr",
+    "handler": "downloadImg",
     "customEventData": ""
   },
   {
@@ -994,9 +997,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "fc3f3702-675f-4807-9db8-9b7fa3ea1d4c"
+      "__uuid__": "5e9615d7-47ce-46ac-a5c3-f121092cc5e7"
     },
-    "fileId": "4cPioCrgRMrZeM7WvQn74H",
+    "fileId": "84PmOjg59BK7lJt1CAihDB",
     "sync": false
   },
   {
@@ -1010,7 +1013,7 @@
     "_useOriginalSize": false,
     "_string": "",
     "returnType": 0,
-    "maxLength": 30,
+    "maxLength": -1,
     "_tabIndex": 0,
     "editingDidBegan": [],
     "textChanged": [],
@@ -1063,9 +1066,142 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "fc3f3702-675f-4807-9db8-9b7fa3ea1d4c"
+      "__uuid__": "5e9615d7-47ce-46ac-a5c3-f121092cc5e7"
     },
-    "fileId": "39FgUkfHxKmKKCRUhdXGfy",
+    "fileId": "95vtvAwpdPI6yrKRk/Zq11",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "NoteLabel",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 2,
+    "_components": [
+      {
+        "__id__": 31
+      },
+      {
+        "__id__": 32
+      }
+    ],
+    "_prefab": {
+      "__id__": 33
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 250,
+      "g": 34,
+      "b": 34,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 546,
+      "height": 91.28
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "groupIndex": 0,
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 30
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_useOriginalSize": false,
+    "_string": "注意：\n因为谷歌最新版浏览器已经严格遵守同源策略，\n故跨域图片的url是在新标签打开。",
+    "_N$string": "注意：\n因为谷歌最新版浏览器已经严格遵守同源策略，\n故跨域图片的url是在新标签打开。",
+    "_fontSize": 26,
+    "_lineHeight": 28,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 30
+    },
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 18,
+    "_left": 534.375,
+    "_right": 425.625,
+    "_top": 0,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 840,
+    "_originalHeight": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "5e9615d7-47ce-46ac-a5c3-f121092cc5e7"
+    },
+    "fileId": "cdGijzqgJCgoJb/X+aQPOJ",
     "sync": false
   },
   {
@@ -1128,14 +1264,16 @@
     "_id": ""
   },
   {
-    "__type__": "9277bRcsSpNkqkB1Kxu3Ivk",
+    "__type__": "3effc7Lkd1MyYMCke51o0wr",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "imgUrl": null,
+    "imgUrl": {
+      "__id__": 8
+    },
     "_id": ""
   },
   {
@@ -1144,9 +1282,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "fc3f3702-675f-4807-9db8-9b7fa3ea1d4c"
+      "__uuid__": "5e9615d7-47ce-46ac-a5c3-f121092cc5e7"
     },
-    "fileId": "40LlM6Si5F8YlR+ldqNmBd",
+    "fileId": "c0e0j2StRMj68wnF4ldSYM",
     "sync": false
   }
 ]

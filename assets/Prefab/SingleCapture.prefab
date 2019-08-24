@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "page_1",
+    "_name": "SingleCapture",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
