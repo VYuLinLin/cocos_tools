@@ -1,0 +1,96 @@
+// Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.  
+
+%{
+  techniques: [
+    {
+      passes: [
+        {
+          vert: vs
+          frag: fs
+          cullMode: none
+          blend: true
+        }
+      ]
+      layer: 0
+    }
+  ]
+  properties: {
+    texture: {
+      type: sampler2D
+      value: null
+    },
+    factor:{
+      type:number
+      value:0.5
+    },
+    uv_factor_1:{
+      type:vec2
+      value:[1,1]
+    },
+    uv_factor_2:{
+      type:vec2
+      value:[1,1]
+    },
+    textureSize:{
+      type:vec2
+      value:[1,1]
+    },
+    radius:{
+      type:number
+      value:52
+    }
+  }
+%}
+
+%% vs {
+
+precision highp float;
+
+uniform mat4 cc_matViewProj;
+attribute vec3 a_position;
+attribute mediump vec2 a_uv0;
+varying mediump vec2 v_uv0;
+
+void main () {
+  gl_Position = cc_matViewProj * vec4(a_position, 1);
+  v_uv0 = a_uv0;
+}
+
+}
+
+%% fs {
+
+precision highp float;
+
+uniform sampler2D texture;
+varying mediump vec2 v_uv0;
+
+uniform vec2 uv_factor_1;
+uniform vec2 uv_factor_2;
+uniform vec2 textureSize;
+uniform float factor;
+uniform float radius;
+
+float gradient = 1.0;
+
+
+float get_mask(float distance,float radius,float factor)
+{
+    if (distance < radius) {
+        float dd = distance/radius;
+        return smoothstep(gradient,0.0, pow(dd,abs(factor)*3.0+1.));
+    }
+    return 0.0;
+}
+
+void main()
+{
+    vec2 curPoint = vec2(textureSize.x*(v_uv0.x-uv_factor_1.x)/uv_factor_2.x,textureSize.y*(v_uv0.y-uv_factor_1.y)/uv_factor_2.y);
+
+    vec2 p = curPoint - vec2(textureSize.x*0.5,textureSize.y*0.5);
+    float dis = length(p);
+
+    gl_FragColor = texture2D(texture,v_uv0)*get_mask(dis,radius,factor);
+}
+
+}

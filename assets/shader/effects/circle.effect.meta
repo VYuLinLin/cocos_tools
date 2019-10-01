@@ -1,0 +1,11 @@
+{
+  "ver": "1.0.15",
+  "uuid": "7b3aa445-1480-43f7-a19a-854abf4b780a",
+  "compiledShaders": [
+    {
+      "vert": "\n#define _IS_VERT_SHADER 1\n\nprecision highp float;\n\nuniform mat4 cc_matViewProj;\nattribute vec3 a_position;\nattribute mediump vec2 a_uv0;\nvarying mediump vec2 v_uv0;\n\nvoid main () {\n  gl_Position = cc_matViewProj * vec4(a_position, 1);\n  v_uv0 = a_uv0;\n}\n\n\n",
+      "frag": "\n#define _IS_FRAG_SHADER 1\n\nprecision highp float;\n\nuniform sampler2D texture;\nvarying mediump vec2 v_uv0;\n\nuniform vec2 uv_factor_1;\nuniform vec2 uv_factor_2;\nuniform vec2 textureSize;\nuniform float factor;\nuniform float radius;\n\nfloat gradient = 1.0;\n\nfloat get_mask(float distance,float radius,float factor)\n{\n    if (distance < radius) {\n        float dd = distance/radius;\n        return smoothstep(gradient,0.0, pow(dd,abs(factor)*3.0+1.));\n    }\n    return 0.0;\n}\n\nvoid main()\n{\n    vec2 curPoint = vec2(textureSize.x*(v_uv0.x-uv_factor_1.x)/uv_factor_2.x,textureSize.y*(v_uv0.y-uv_factor_1.y)/uv_factor_2.y);\n\n    vec2 p = curPoint - vec2(textureSize.x*0.5,textureSize.y*0.5);\n    float dis = length(p);\n\n    gl_FragColor = texture2D(texture,v_uv0)*get_mask(dis,radius,factor);\n}\n\n\n"
+    }
+  ],
+  "subMetas": {}
+}
